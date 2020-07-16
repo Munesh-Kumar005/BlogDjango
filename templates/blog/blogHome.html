@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+{% block tittle %}Blog{% endblock tittle %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+{% block js %}
+<script>
+let previews = document.getElementByClassName('preview');
+Array.from(previews).forEach((element)=>{
+  element.innerHTML = element.I
+})
+</script>
+{% endblock  %}
+<div class="container my-4">
+<div class="py-5 text-center">
+<h2>Coding Articals</h2>
+{% for post in allposts  %}
+  <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Articals by {{post.auther}} {{post.views}} views</strong>
+          <h3 class="mb-0">
+          <a class="text-dark" href="/blog/{{post.slug}}">{{post.title}} </a></h3>
+          <div class="mb-1 text-muted">{{post.datetime}}</div>
+          <p class="card-text mb-auto"><div class="preview">{{post.content|safe | truncatechars:100}}</div></p>
+          <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary my-2">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src ="https://source.unsplash.com/weekly?blog" width="200" height="250"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+    {% endfor %}
+   </div>
+ {% endblock body %}

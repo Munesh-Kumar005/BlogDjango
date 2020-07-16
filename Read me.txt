@@ -1,0 +1,2 @@
+adin name is blog
+password is blog

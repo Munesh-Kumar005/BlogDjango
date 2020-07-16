@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% block tittle %}Contact{% endblock tittle %}
+{% block contactactive %} active {% endblock contactactive %}
+{% block body %}
+<div class="container">
+<form method="post" action="/contact">
+<h1>Contact</h1>
+  <div class="form-group">
+  {% csrf_token %}
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" name="name" id="name" aria-describedby="namehelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+   <div class="form-group">
+ 
+    <label for="Email">Email address</label>
+    <input type="email" class="form-control" name="email" id="Email1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="Phone">Phone</label>
+    <input type="number" class="form-control" name="phone" id="exampleInputPassword1">
+  </div>
+   <div class="form-group">
+    <label for="content">Tell Me Your Issue</label>
+    <textarea class="form-control" name="content" id="content" cols="30" rows="3"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+ {% endblock body %}
